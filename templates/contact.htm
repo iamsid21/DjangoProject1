@@ -1,0 +1,36 @@
+{% extends 'base.htm' %}
+{% block title %}| Contact {% endblock title %}
+{% block body %}
+
+<div class="container-fluid px-0">
+    <img src="https://source.unsplash.com/1200x400/?contact,connect" class="d-block w-100" alt="...">
+</div>
+<div class="container my-4">
+    <h2 class="text-center ">
+        Contact Us
+    </h2>
+    <form method ="POST" action="/contact">
+    {% csrf_token %} <!-- Used so as to ensure that form is submitted via our own website only -->
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Name</label>
+            <input type="name" name="name" class="form-control" id="exampleFormControlInput2" placeholder="Enter your name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput3" class="form-label">Phone number</label>
+            <input type="phone" name="phone" class="form-control" id="exampleFormControlInput3" placeholder="Enter your phone number">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Why do you want to contact me ?</label>
+            <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
